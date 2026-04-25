@@ -1,0 +1,189 @@
+import React, { useEffect, useState } from 'react';
+import { useParams, Link } from 'react-router-dom';
+import { motion, AnimatePresence } from 'motion/react';
+import { useLanguage } from '../hooks/useLanguage';
+import { eventService } from '../services/firebaseService';
+import { MusicEvent } from '../types';
+import { Calendar, Youtube, ChevronLeft, Image as ImageIcon, Play, ChevronRight } from 'lucide-react';
+import { getDirectLink } from '../lib/utils';
+
+export const EventDetail: React.FC = () => {
+  const { id } = useParams<{ id: string }>();
+  const { t, language } = useLanguage();
+  const [event, setEvent] = useState<MusicEvent | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [activeMedia, setActiveMedia] = useState<'video' | number>('video');
+
+  useEffect(() => {
+    const fetchEvent = async () => {
+      if (!id) return;
+      try {
+        const data = await eventService.getEventById(id);
+        if (data) {
+          setEvent(data as MusicEvent);
+          // Auto switch to first image if no video
+          if (!data.youtubeId && data.images?.length > 0) {
+            setActiveMedia(0);
+          }
+        }
+      } catch (err) {
+        console.error("Error fetching event detail:", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchEvent();
+  }, [id]);
+
+  if (loading) {
+    return <div className="h-screen flex items-center justify-center text-white/20 animate-pulse">{t('loading')}</div>;
+  }
+
+  if (!event) {
+    return (
+      <div className="h-screen flex flex-col items-center justify-center space-y-4">
+        <h2 className="text-3xl font-serif font-bold text-white">Event Not Found</h2>
+        <Link to="/music-center" className="text-gold flex items-center">
+          <ChevronLeft className="w-5 h-5 mr-1" /> Back to Music Center
+        </Link>
+      </div>
+    );
+  }
+
+  const title = language === 'en' ? event.title_en : event.title_vi;
+  const description = language === 'en' ? event.description_en : event.description_vi;
+  const hasImages = event.images && event.images.length > 0;
+
+  return (
+    <div className="pt-32 pb-24 px-4 min-h-screen bg-piano-black">
+      <div className="max-w-6xl mx-auto">
+        <Link to="/music-center" className="inline-flex items-center text-white/40 hover:text-gold transition-colors mb-8 group">
+          <ChevronLeft className="w-5 h-5 mr-1 group-hover:-translate-x-1 transition-transform" />
+          <span className="text-xs uppercase font-bold tracking-widest">{t('back_to_music_center')}</span>
+        </Link>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
+          {/* Media Section */}
+          <div className="space-y-6">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="aspect-video rounded-3xl overflow-hidden bg-piano-matte border border-white/5 shadow-2xl relative group"
+            >
+              {activeMedia === 'video' ? (
+                <iframe 
+                  className="w-full h-full"
+                  src={`https://www.youtube.com/embed/${event.youtubeId}`}
+                  title={title}
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+              ) : (
+                <>
+                  <AnimatePresence mode="wait">
+                    <motion.img 
+                      key={activeMedia}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      src={getDirectLink(event.images[activeMedia as number])} 
+                      alt={title}
+                      className="w-full h-full object-cover"
+                    />
+                  </AnimatePresence>
+                  
+                  {event.images.length > 1 && (
+                    <>
+                      <button 
+                        type="button"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setActiveMedia((prev) => (typeof prev === 'number' && prev > 0 ? prev - 1 : event.images.length - 1));
+                        }}
+                        className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/40 backdrop-blur-md p-3 rounded-full text-white opacity-60 hover:opacity-100 hover:bg-gold hover:text-piano-black transition-all z-10 shadow-xl"
+                      >
+                        <ChevronLeft size={24} />
+                      </button>
+                      <button 
+                        type="button"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setActiveMedia((prev) => (typeof prev === 'number' && prev < event.images.length - 1 ? prev + 1 : 0));
+                        }}
+                        className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/40 backdrop-blur-md p-3 rounded-full text-white opacity-60 hover:opacity-100 hover:bg-gold hover:text-piano-black transition-all z-10 shadow-xl"
+                      >
+                        <ChevronRight size={24} />
+                      </button>
+                    </>
+                  )}
+                </>
+              )}
+            </motion.div>
+
+            {/* Media Selector */}
+            <div className="flex flex-wrap gap-3">
+              {event.youtubeId && (
+                <button 
+                  onClick={() => setActiveMedia('video')}
+                  className={`w-20 h-14 rounded-xl overflow-hidden border-2 transition-all relative ${activeMedia === 'video' ? 'border-gold scale-105' : 'border-white/5 opacity-50'}`}
+                >
+                  <img src={`https://img.youtube.com/vi/${event.youtubeId}/0.jpg`} className="w-full h-full object-cover" alt="Video" />
+                  <div className="absolute inset-0 flex items-center justify-center bg-black/40">
+                    <Play className="w-4 h-4 text-white fill-current" />
+                  </div>
+                </button>
+              )}
+              {event.images?.map((img, idx) => (
+                <button 
+                  key={idx}
+                  onClick={() => setActiveMedia(idx)}
+                  className={`w-20 h-14 rounded-xl overflow-hidden border-2 transition-all ${activeMedia === idx ? 'border-gold scale-105' : 'border-white/5 opacity-50'}`}
+                >
+                  <img src={getDirectLink(img)} className="w-full h-full object-cover" alt={`Event view ${idx + 1}`} />
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Info Section */}
+          <motion.div 
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.2 }}
+            className="flex flex-col h-full"
+          >
+            <div className="flex items-center space-x-3 mb-4">
+              <span className={`px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest ${event.status === 'upcoming' ? 'bg-blue-600/20 text-blue-500' : 'bg-green-600/20 text-green-500'}`}>
+                {event.status === 'upcoming' ? t('status_upcoming') : t('status_completed')}
+              </span>
+              <div className="flex items-center text-gold text-xs font-bold uppercase tracking-widest">
+                <Calendar className="w-3 h-3 mr-2" />
+                {new Date(event.date).toLocaleDateString(language === 'en' ? 'en-US' : 'vi-VN', { 
+                  year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit'
+                })}
+              </div>
+            </div>
+
+            <h1 className="font-serif text-4xl font-bold text-white mb-8 leading-tight">
+              {title}
+            </h1>
+
+            <div className="prose prose-invert max-w-none text-white/60 leading-relaxed text-lg italic whitespace-pre-wrap">
+              {description || t('no_description')}
+            </div>
+
+            <div className="mt-auto pt-12">
+               <Link 
+                 to="/contact"
+                 className="inline-block bg-gold hover:bg-gold-dark text-piano-black font-bold px-8 py-4 rounded-2xl transition-all shadow-xl"
+               >
+                 {t('register_participate')}
+               </Link>
+            </div>
+          </motion.div>
+        </div>
+      </div>
+    </div>
+  );
+};

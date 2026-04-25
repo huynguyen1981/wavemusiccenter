@@ -1,0 +1,28 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Cho phép mọi người xem đàn và cài đặt web
+    match /pianos/{pianoId} {
+      allow read: if true;
+    }
+    match /settings/{settingId} {
+      allow read: if true;
+    }
+    match /events/{eventId} {
+      allow read: if true;
+    }
+
+    // Chỉ có bồ (nguyenhuy.1981.hcm@gmail.com) mới được quyền sửa
+    match /{document=**} {
+      allow write, read: if request.auth != null && request.auth.token.email == 'nguyenhuy.1981.hcm@gmail.com';
+    }
+    
+    // Khách vãng lai được gửi đơn hàng (inquiry) và liên hệ
+    match /orders/{orderId} {
+      allow create: if true;
+    }
+    match /inquiries/{inquiryId} {
+      allow create: if true;
+    }
+  }
+}

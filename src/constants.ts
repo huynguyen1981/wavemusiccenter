@@ -1,0 +1,101 @@
+import { Translation } from './types';
+
+export const CONTACT_INFO = {
+  phone: '(713) 530-8265',
+  address: 'Sugar Land Howell Rd, Sugar Land, TX 77498, USA',
+  email: 'locpianostx@gmail.com', // Placeholder if not in screenshot
+  facebook: 'https://facebook.com/WaveMusicCenter',
+};
+
+export const UI_TEXT: Translation = {
+  home: { en: 'Home', vi: 'Trang chủ' },
+  shop: { en: 'Collections', vi: 'Bộ sưu tập' },
+  about: { en: 'About Us', vi: 'Về chúng tôi' },
+  contact: { en: 'Contact', vi: 'Liên hệ' },
+  admin: { en: 'Admin', vi: 'Quản trị' },
+  view_details: { en: 'View Details', vi: 'Xem chi tiết' },
+  order_now: { en: 'Inquire Now', vi: 'Yêu cầu tư vấn' },
+  featured_pianos: { en: 'Featured Pianos', vi: 'Đàn Piano Nổi Bật' },
+  hero_title: { en: 'Perfecting Your Musical Journey', vi: 'Hoàn thiện hành trình âm nhạc của bạn' },
+  all_categories: { en: 'All Categories', vi: 'Tất cả' },
+  grand_pianos: { en: 'Grand Pianos', vi: 'Grand Pianos' },
+  upright_pianos: { en: 'Upright Pianos', vi: 'Upright Pianos' },
+  digital_pianos: { en: 'Digital Pianos', vi: 'Digital Pianos' },
+  available: { en: 'Available', vi: 'Sẵn có' },
+  sold: { en: 'Sold', vi: 'Đã bán' },
+  coming_soon: { en: 'Coming Soon', vi: 'Sắp về' },
+  quality_title: { en: 'Premium Quality', vi: 'Chất lượng Thượng hạng' },
+  quality_desc: { en: 'Every piano in our collection is hand-picked and professionally inspected to ensure the highest musical standards.', vi: 'Mỗi cây đàn trong bộ sưu tập đều được tuyển chọn kỹ lưỡng và kiểm tra chuyên nghiệp để đảm bảo tiêu chuẩn âm nhạc cao nhất.' },
+  delivery_title: { en: 'White Glove Delivery', vi: 'Vận chuyển Chuyên nghiệp' },
+  delivery_desc: { en: 'Professional moving and installation services across the region. We handle your instrument with the utmost care.', vi: 'Dịch vụ vận chuyển và lắp đặt chuyên nghiệp. Chúng tôi nâng niu nhạc cụ của bạn với sự cẩn trọng tuyệt đối.' },
+  tuning_title: { en: 'Expert Tuning', vi: 'Lên dây Chuyên gia' },
+  tuning_desc: { en: 'Our certified technicians provide maintenance and tuning services to keep your piano sounding perfect for years to come.', vi: 'Các kỹ thuật viên chứng chỉ quốc tế cung cấp dịch vụ bảo trì và lên dây để tiếng đàn luôn hoàn hảo qua năm tháng.' },
+  teaching_title: { en: 'Dedicated Teaching', vi: 'Giảng Dạy Tận Tâm' },
+  teaching_desc: { en: 'Personalized music education from passionate instructors, nurturing talent at every skill level.', vi: 'Chương trình đào tạo cá nhân hóa từ các giảng viên đầy tâm huyết, bồi dưỡng tài năng âm nhạc mọi trình độ.' },
+  craft_title: { en: 'Craftsmanship Meets', vi: 'Khi Nghệ thuật Gặp gỡ' },
+  craft_elegance: { en: 'Elegance', vi: 'Sự Sang trọng' },
+  craft_desc: { en: 'At Wave Music Center, we believe music is more than just a skill; it\'s a journey of the soul. From world-class piano sales to expert instruction, we accompany you every step of the way.', vi: 'Tại Wave Music Center, chúng tôi tin rằng âm nhạc không chỉ là một kỹ năng; đó là một hành trình của tâm hồn. Từ việc cung cấp những cây đàn đẳng cấp thế giới đến sự giảng dạy tận tâm, chúng tôi đồng hành cùng bạn trên mọi bước đường.' },
+  browse_collection: { en: 'Explore our Music Center', vi: 'Khám phá Trung tâm Âm nhạc' },
+  shop_desc: { en: 'Alongside our educational programs, discover our curated selection of the world\'s most prestigious piano brands.', vi: 'Bên cạnh các chương trình đào tạo, hãy khám phá bộ sưu tập những thương hiệu piano danh tiếng nhất thế giới được chúng tôi tuyển chọn.' },
+  wave_music_center: { en: 'Wave Music Center', vi: 'Trung tâm Âm nhạc Wave' },
+  music_center_desc: { en: 'The heart of musical education, empowering students to find their voice through expert instruction and performance.', vi: 'Tâm điểm của giáo dục âm nhạc, nơi chắp cánh ước mơ thông qua sự giảng dạy chuyên nghiệp và các cơ hội biểu diễn.' },
+  music_center_intro: { en: 'Located in the heart of Texas, Wave Music Center is dedicated to fostering artistic growth...', vi: 'Nằm tại trung tâm Texas, Wave Music Center tận tâm bồi dưỡng sự phát triển nghệ thuật...' },
+  upcoming_events: { en: 'Upcoming Events', vi: 'Sự kiện sắp diễn ra' },
+  past_events: { en: 'Past Highlights', vi: 'Sự kiện đã qua' },
+  no_upcoming_events: { en: 'Stay tuned for upcoming musical events!', vi: 'Hãy đón chờ các sự kiện âm nhạc sắp tới nhé!' },
+  no_past_events: { en: 'Our journey is just beginning.', vi: 'Hành trình của chúng tôi vừa mới bắt đầu.' },
+  view_event_detail: { en: 'Explore Event', vi: 'Chi tiết sự kiện' },
+  back_to_music_center: { en: 'Back to Music Center', vi: 'Quay lại Trung tâm' },
+  no_description: { en: 'Join us for this special musical experience.', vi: 'Mời bạn cùng tham gia trải nghiệm âm nhạc đặc biệt này.' },
+  register_participate: { en: 'Register to Attend', vi: 'Đăng ký tham gia' },
+  status_upcoming: { en: 'Upcoming', vi: 'Sắp diễn ra' },
+  status_completed: { en: 'Completed', vi: 'Đã diễn ra' },
+  edu_excellence: { en: 'Educational Excellence', vi: 'Đỉnh Cao Giáo Dục' },
+  loading_events: { en: 'Tuning the stage...', vi: 'Đang chuẩn bị sân khấu...' },
+  no_events: { en: 'No events scheduled yet.', vi: 'Chưa có sự kiện nào được lên lịch.' },
+  hero_subtitle: { en: '"Steinway & Sons — A Legacy of Perfection"', vi: '"Steinway & Sons — Di Sản Của Sự Hoàn Hảo"' },
+  contact_intro: { en: 'Visit our showroom for a private consultation or reach out to us for any inquiries about our instruments.', vi: 'Hãy ghé thăm showroom của chúng tôi để được tư vấn riêng hoặc liên hệ nếu bạn có bất kỳ thắc mắc nào về các loại nhạc cụ.' },
+  piano_alt: { en: 'Steinway & Sons Piano', vi: 'Đàn Steinway & Sons' },
+  footer_tagline: { en: '"Bringing the timeless elegance of piano to every home. Quality, service, and passion."', vi: '"Mang vẻ đẹp vĩnh cửu của những phím đàn đến mọi ngôi nhà. Chất lượng, dịch vụ và tâm huyết."' },
+  all_rights: { en: 'All rights reserved.', vi: 'Tất cả các quyền được bảo lưu.' },
+  privacy_policy: { en: 'Privacy Policy', vi: 'Chính sách bảo mật' },
+  terms_of_service: { en: 'Terms of Service', vi: 'Điều khoản dịch vụ' },
+  submit: { en: 'Submit Inquiry', vi: 'Gửi yêu cầu' },
+  about_title: { en: 'Our Vision', vi: 'Tầm nhìn của chúng tôi' },
+  about_content: { en: 'Wave Music Center was established with a singular vision: to create a comprehensive oasis for musical growth. We combine the prestige of world-class instruments with the warmth of a dedicated music school. Our mission is to inspire, educate, and provide the tools for artistic excellence to the Texas community and beyond.', vi: 'Wave Music Center được thành lập với một tầm nhìn duy nhất: tạo ra một không gian toàn diện cho sự phát triển âm nhạc. Chúng tôi kết hợp sự đẳng cấp của những nhạc cụ hàng đầu thế giới với sự tận tâm của một trường nhạc chuyên nghiệp. Sứ mệnh của chúng tôi là truyền cảm hứng, giáo dục và cung cấp các công cụ cho sự hoàn hảo nghệ thuật.' },
+  
+  // Dynamic Global Info
+  global_phone: { en: '(713) 530-8265', vi: '(713) 530-8265' },
+  global_email: { en: 'locpianostx@gmail.com', vi: 'locpianostx@gmail.com' },
+  global_address: { en: 'Sugar Land Howell Rd, Sugar Land, TX 77498, USA', vi: 'Sugar Land Howell Rd, Sugar Land, TX 77498, USA' },
+  
+  // Stats
+  stat_years: { en: '15+', vi: '15+' },
+  stat_years_label: { en: 'Years Experience', vi: 'Năm Kinh Nghiệm' },
+  stat_students: { en: '200+', vi: '200+' },
+  stat_students_label: { en: 'Music Students', vi: 'Học Viên' },
+  stat_delivered: { en: '500+', vi: '500+' },
+  stat_delivered_label: { en: 'Pianos Delivered', vi: 'Đàn Đã Giao' },
+  stat_teachers: { en: '15+', vi: '15+' },
+  stat_teachers_label: { en: 'Expert Teachers', vi: 'Giảng Viên' },
+  stat_events: { en: '50+', vi: '50+' },
+  stat_events_label: { en: 'Annual Events', vi: 'Sự Kiện Hàng Năm' },
+  stat_dedication: { en: '100%', vi: '100%' },
+  stat_dedication_label: { en: 'Dedication', vi: 'Tâm Huyết' },
+  
+  // Dynamic Media
+  home_hero_img: { en: 'https://images.unsplash.com/photo-1552422535-c45813c61732?auto=format&fit=crop&q=80&w=2000', vi: 'https://images.unsplash.com/photo-1552422535-c45813c61732?auto=format&fit=crop&q=80&w=2000' },
+  about_hero_img: { en: 'https://images.unsplash.com/photo-1552422535-c45813c61732?auto=format&fit=crop&q=80&w=1000', vi: 'https://images.unsplash.com/photo-1552422535-c45813c61732?auto=format&fit=crop&q=80&w=1000' },
+  music_center_hero_img: { en: 'https://images.unsplash.com/photo-1552422535-c45813c61732?auto=format&fit=crop&q=80&w=1200', vi: 'https://images.unsplash.com/photo-1552422535-c45813c61732?auto=format&fit=crop&q=80&w=1200' },
+
+  // Theme Settings
+  current_theme: { en: 'normal', vi: 'normal' }, // Options: normal, christmas, spring, lunar_new_year
+
+  facebook_link: { en: 'https://facebook.com/WaveMusicCenter', vi: 'https://facebook.com/WaveMusicCenter' },
+  instagram_link: { en: 'https://instagram.com/WaveMusicCenter', vi: 'https://instagram.com/WaveMusicCenter' },
+  youtube_link: { en: 'https://youtube.com/@WaveMusicCenter', vi: 'https://youtube.com/@WaveMusicCenter' },
+  tiktok_link: { en: 'https://tiktok.com/@WaveMusicCenter', vi: 'https://tiktok.com/@WaveMusicCenter' },
+  admin_emails: { en: 'nguyenhuy.1981.hcm@gmail.com', vi: 'nguyenhuy.1981.hcm@gmail.com' },
+
+  website_logo: { en: '', vi: '' }, // Hidden key for storing the URL
+};

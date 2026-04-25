@@ -1,0 +1,83 @@
+{
+  "entities": {
+    "Piano": {
+      "title": "Piano",
+      "description": "A piano instrument for sale",
+      "type": "object",
+      "properties": {
+        "title_en": { "type": "string" },
+        "title_vi": { "type": "string" },
+        "description_en": { "type": "string" },
+        "description_vi": { "type": "string" },
+        "price": { "type": "number" },
+        "category": { "type": "string", "enum": ["grand", "upright", "digital", "accessories"] },
+        "brand": { "type": "string" },
+        "model": { "type": "string" },
+        "images": { "type": "array", "items": { "type": "string" } },
+        "status": { "type": "string", "enum": ["available", "sold", "reserved", "coming-soon"] },
+        "specifications": { "type": "array" },
+        "createdAt": { "type": "number" },
+        "updatedAt": { "type": "number" }
+      },
+      "required": ["title_en", "price", "category", "brand", "status"]
+    },
+    "Order": {
+      "title": "Order",
+      "description": "A customer inquiry or purchase order",
+      "type": "object",
+      "properties": {
+        "customerName": { "type": "string" },
+        "customerPhone": { "type": "string" },
+        "customerEmail": { "type": "string" },
+        "pianoId": { "type": "string" },
+        "pianoTitle": { "type": "string" },
+        "status": { "type": "string", "enum": ["pending", "confirmed", "delivered", "cancelled"] },
+        "amount": { "type": "number" },
+        "createdAt": { "type": "number" }
+      }
+    },
+    "Setting": {
+      "title": "Setting",
+      "description": "Global website settings and translations",
+      "type": "object",
+      "properties": {
+        "translations": { "type": "object" }
+      }
+    },
+    "MusicEvent": {
+      "title": "Music Event",
+      "description": "An event at the music center",
+      "type": "object",
+      "properties": {
+        "title_en": { "type": "string" },
+        "title_vi": { "type": "string" },
+        "date": { "type": "string", "format": "date-time" },
+        "description_en": { "type": "string" },
+        "description_vi": { "type": "string" },
+        "youtubeId": { "type": "string" },
+        "images": { "type": "array", "items": { "type": "string" } },
+        "status": { "type": "string", "enum": ["upcoming", "completed", "hidden"] },
+        "createdAt": { "type": "number" }
+      },
+      "required": ["title_en", "date", "status"]
+    }
+  },
+  "firestore": {
+    "pianos": {
+      "schema": "Piano",
+      "description": "Collection of pianos available for sale"
+    },
+    "orders": {
+      "schema": "Order",
+      "description": "Customer orders and inquiries"
+    },
+    "settings": {
+      "schema": "Setting",
+      "description": "Website configurations"
+    },
+    "events": {
+      "schema": "MusicEvent",
+      "description": "Collection of music center events"
+    }
+  }
+}
