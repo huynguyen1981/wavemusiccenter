@@ -16,8 +16,8 @@ export function getDirectLink(url: string) {
                     trimmedUrl.match(/id=([a-zA-Z0-9_-]+)/);
                     
     if (idMatch && idMatch[1]) {
-      // Using the thumbnail endpoint which is generally more permissive for embedding
-      return `https://drive.google.com/thumbnail?id=${idMatch[1]}&sz=w1000`;
+      // Using lh3.googleusercontent.com/d/ which is higher quality for hero images
+      return `https://lh3.googleusercontent.com/d/${idMatch[1]}`;
     }
   }
   return trimmedUrl;

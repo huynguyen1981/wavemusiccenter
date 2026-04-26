@@ -125,7 +125,7 @@ export const MusicCenter: React.FC = () => {
           >
             <div className="aspect-video rounded-3xl overflow-hidden bg-piano-black shadow-2xl border border-white/5">
               <img 
-                src={t('music_center_hero_img')} 
+                src={getDirectLink(t('music_center_hero_img'))} 
                 alt="Wave Music Center"
                 className="w-full h-full object-cover opacity-80"
               />

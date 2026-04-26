@@ -17,7 +17,7 @@ export const Home: React.FC = () => {
           <div 
             className="absolute inset-0 bg-cover bg-center"
             style={{ 
-              backgroundImage: `url("${t('home_hero_img')}")`,
+              backgroundImage: `url("${getDirectLink(t('home_hero_img'))}")`,
               filter: 'brightness(0.3)'
             }}
           />
@@ -189,7 +189,7 @@ export const Home: React.FC = () => {
             <div className="lg:w-1/2 relative">
                <div className="relative z-10 rounded-3xl overflow-hidden shadow-2xl transform lg:rotate-3 hover:rotate-0 transition-transform duration-700">
                  <img 
-                    src="https://images.unsplash.com/photo-1552422535-c45813c61732?auto=format&fit=crop&q=80&w=1200" 
+                    src={getDirectLink(t('discover_img'))} 
                     alt={t('piano_alt')}
                     className="w-full h-auto"
                  />

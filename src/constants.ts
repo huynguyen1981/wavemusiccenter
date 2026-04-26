@@ -91,6 +91,7 @@ export const UI_TEXT: Translation = {
   home_hero_img: { en: 'https://images.unsplash.com/photo-1552422535-c45813c61732?auto=format&fit=crop&q=80&w=2000', vi: 'https://images.unsplash.com/photo-1552422535-c45813c61732?auto=format&fit=crop&q=80&w=2000' },
   about_hero_img: { en: 'https://images.unsplash.com/photo-1552422535-c45813c61732?auto=format&fit=crop&q=80&w=1000', vi: 'https://images.unsplash.com/photo-1552422535-c45813c61732?auto=format&fit=crop&q=80&w=1000' },
   music_center_hero_img: { en: 'https://images.unsplash.com/photo-1552422535-c45813c61732?auto=format&fit=crop&q=80&w=1200', vi: 'https://images.unsplash.com/photo-1552422535-c45813c61732?auto=format&fit=crop&q=80&w=1200' },
+  discover_img: { en: 'https://images.unsplash.com/photo-1552422535-c45813c61732?auto=format&fit=crop&q=80&w=1200', vi: 'https://images.unsplash.com/photo-1552422535-c45813c61732?auto=format&fit=crop&q=80&w=1200' },
 
   // Theme Settings
   current_theme: { en: 'normal', vi: 'normal' }, // Options: normal, christmas, spring, lunar_new_year, summer, autumn, july4, halloween, thanksgiving
