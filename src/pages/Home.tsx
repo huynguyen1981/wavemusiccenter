@@ -59,22 +59,19 @@ export const Home: React.FC = () => {
             <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl font-bold mb-6 tracking-tight leading-tight whitespace-pre-line">
               {(() => {
                 const title = t('hero_title');
-                // Always try to force split at core phrases if no newline exists
-                if (title.includes('\n')) return title;
+                // Handle literal \n string coming from translations and force split for beauty
+                let processed = title.replace(/\\n/g, '\n');
                 
-                // Vietnamese split point
-                if (title.includes('hành trình ')) {
-                  return title.replace('hành trình ', 'hành trình\n');
+                if (!processed.includes('\n')) {
+                  if (processed.includes('hành trình ')) {
+                    processed = processed.replace('hành trình ', 'hành trình\n');
+                  } else if (processed.includes('Musical ')) {
+                    processed = processed.replace('Musical ', 'Musical\n');
+                  } else if (processed.includes('Your ')) {
+                    processed = processed.replace('Your ', 'Your\n');
+                  }
                 }
-                
-                // English split point
-                if (title.includes('Musical ')) {
-                  return title.replace('Musical ', '\nMusical ');
-                } else if (title.includes('Your ')) {
-                  return title.replace('Your ', 'Your\n');
-                }
-                
-                return title;
+                return processed;
               })()}
             </h1>
             <p className="text-xl md:text-2xl text-white/70 max-w-2xl mx-auto mb-10 font-light tracking-wide italic">
