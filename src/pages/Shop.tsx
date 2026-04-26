@@ -89,7 +89,7 @@ export const Shop: React.FC = () => {
       ) : (
         <div className="text-center py-24 border border-dashed border-white/10 rounded-3xl">
           <Search className="w-12 h-12 text-white/20 mx-auto mb-4" />
-          <p className="text-white/50">No pianos found in this category.</p>
+          <p className="text-white/50">{t('no_pianos')}</p>
         </div>
       )}
     </div>

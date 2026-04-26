@@ -56,8 +56,14 @@ export const Home: React.FC = () => {
               </div>
             </motion.div>
 
-            <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl font-bold mb-6 tracking-tight leading-tight">
-              {t('hero_title')}
+            <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl font-bold mb-6 tracking-tight leading-tight whitespace-pre-line">
+              {(() => {
+                const title = t('hero_title');
+                if (title.includes('\n')) return title;
+                if (title.includes('hành trình')) return title.replace('hành trình ', 'hành trình\n');
+                if (title.includes('Your')) return title.replace('Your ', 'Your\n');
+                return title;
+              })()}
             </h1>
             <p className="text-xl md:text-2xl text-white/70 max-w-2xl mx-auto mb-10 font-light tracking-wide italic">
               {t('hero_subtitle')}

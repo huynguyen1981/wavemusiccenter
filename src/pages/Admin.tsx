@@ -641,6 +641,11 @@ export const Admin: React.FC = () => {
                           <option value="christmas">Christmas (Holiday Season)</option>
                           <option value="spring">Spring (Blossom)</option>
                           <option value="lunar_new_year">Lunar New Year (Tết)</option>
+                          <option value="summer">Summer (Sun & Sea)</option>
+                          <option value="autumn">Autumn (Falling Leaves)</option>
+                          <option value="july4">Independence Day (July 4th)</option>
+                          <option value="halloween">Halloween (Spooky)</option>
+                          <option value="thanksgiving">Thanksgiving (Harvest)</option>
                         </select>
                       </div>
                       <div className="space-y-4">

@@ -16,7 +16,11 @@ export const UI_TEXT: Translation = {
   view_details: { en: 'View Details', vi: 'Xem chi tiết' },
   order_now: { en: 'Inquire Now', vi: 'Yêu cầu tư vấn' },
   featured_pianos: { en: 'Featured Pianos', vi: 'Đàn Piano Nổi Bật' },
-  hero_title: { en: 'Perfecting Your Musical Journey', vi: 'Hoàn thiện hành trình âm nhạc của bạn' },
+  hero_title: { en: 'Perfecting Your\nMusical Journey', vi: 'Hoàn thiện hành trình\nâm nhạc của bạn' },
+  collections: { en: 'Collections', vi: 'Bộ Sưu Tập' },
+  shop: { en: 'Collections', vi: 'Bộ Sưu Tập' },
+  shop_desc: { en: 'Explore our collection of the world\'s most prestigious piano brands. Each instrument is perfectly maintained.', vi: 'Khám phá bộ sưu tập những thương hiệu piano danh tiếng nhất thế giới. Mỗi nhạc cụ đều được chăm sóc đến mức hoàn hảo.' },
+  no_pianos: { en: 'No pianos found in this category.', vi: 'Không tìm thấy cây đàn nào trong danh mục này.' },
   all_categories: { en: 'All Categories', vi: 'Tất cả' },
   grand_pianos: { en: 'Grand Pianos', vi: 'Grand Pianos' },
   upright_pianos: { en: 'Upright Pianos', vi: 'Upright Pianos' },
@@ -89,7 +93,7 @@ export const UI_TEXT: Translation = {
   music_center_hero_img: { en: 'https://images.unsplash.com/photo-1552422535-c45813c61732?auto=format&fit=crop&q=80&w=1200', vi: 'https://images.unsplash.com/photo-1552422535-c45813c61732?auto=format&fit=crop&q=80&w=1200' },
 
   // Theme Settings
-  current_theme: { en: 'normal', vi: 'normal' }, // Options: normal, christmas, spring, lunar_new_year
+  current_theme: { en: 'normal', vi: 'normal' }, // Options: normal, christmas, spring, lunar_new_year, summer, autumn, july4, halloween, thanksgiving
 
   facebook_link: { en: 'https://facebook.com/WaveMusicCenter', vi: 'https://facebook.com/WaveMusicCenter' },
   instagram_link: { en: 'https://instagram.com/WaveMusicCenter', vi: 'https://instagram.com/WaveMusicCenter' },

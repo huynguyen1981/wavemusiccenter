@@ -30,6 +30,11 @@ export const SeasonalEffects: React.FC = () => {
       case 'christmas': return '❄️';
       case 'spring': return '🌸';
       case 'lunar_new_year': return '🏵️';
+      case 'summer': return ['☀️', '🌊', '🌴'][Math.floor(Math.random() * 3)];
+      case 'autumn': return ['🍂', '🍁'][Math.floor(Math.random() * 2)];
+      case 'july4': return ['🎆', '✨', '🇺🇸'][Math.floor(Math.random() * 3)];
+      case 'halloween': return ['🎃', '👻', '🦇'][Math.floor(Math.random() * 3)];
+      case 'thanksgiving': return ['🦃', '🥧', '🍂'][Math.floor(Math.random() * 3)];
       default: return '';
     }
   };
