@@ -42,6 +42,7 @@ export const Home: React.FC = () => {
                   <img 
                     src={getDirectLink(t('website_logo'))} 
                     alt="Wave Music Center Logo" 
+                    referrerPolicy="no-referrer"
                     className="w-full h-full object-contain relative z-10 p-4 md:p-6 mix-blend-lighten group-hover:scale-110 transition-transform duration-700"
                     onError={(e) => {
                       (e.target as HTMLImageElement).style.display = 'none';
@@ -189,7 +190,7 @@ export const Home: React.FC = () => {
             <div className="lg:w-1/2 relative">
                <div className="relative z-10 rounded-3xl overflow-hidden shadow-2xl transform lg:rotate-3 hover:rotate-0 transition-transform duration-700">
                  <img 
-                    src={getDirectLink(t('discover_img'))} 
+                    src={getDirectLink(t('discover_img'))} referrerPolicy="no-referrer" 
                     alt={t('piano_alt')}
                     className="w-full h-auto"
                  />

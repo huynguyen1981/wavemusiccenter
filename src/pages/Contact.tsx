@@ -46,26 +46,37 @@ export const Contact: React.FC = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           {/* Info Side */}
-          <div className="space-y-12">
-             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div className="bg-piano-matte p-8 rounded-3xl border border-white/5">
-                   <Phone className="w-8 h-8 text-gold mb-4" />
-                   <h3 className="text-lg font-bold mb-2 uppercase tracking-widest">{t('phone')}</h3>
-                   <p className="text-white/60">{t('global_phone')}</p>
+          <div className="space-y-8">
+             <div className="bg-piano-matte p-8 rounded-3xl border border-white/5 flex items-center space-x-6">
+                <div className="w-14 h-14 bg-gold/10 rounded-2xl flex items-center justify-center text-gold shrink-0">
+                   <Phone className="w-6 h-6" />
                 </div>
-                <div className="bg-piano-matte p-8 rounded-3xl border border-white/5">
-                   <Mail className="w-8 h-8 text-gold mb-4" />
-                   <h3 className="text-lg font-bold mb-2 uppercase tracking-widest">{t('email')}</h3>
-                   <p className="text-white/60">{t('global_email')}</p>
+                <div>
+                   <h3 className="text-xs uppercase font-bold tracking-[0.2em] text-white/40 mb-1">{t('phone')}</h3>
+                   <p className="text-white text-base md:text-lg font-medium">{t('global_phone')}</p>
+                </div>
+             </div>
+
+             <div className="bg-piano-matte p-8 rounded-3xl border border-white/5 flex items-center space-x-6 overflow-hidden">
+                <div className="w-14 h-14 bg-gold/10 rounded-2xl flex items-center justify-center text-gold shrink-0">
+                   <Mail className="w-6 h-6" />
+                </div>
+                <div className="min-w-0">
+                   <h3 className="text-xs uppercase font-bold tracking-[0.2em] text-white/40 mb-1">{t('email')}</h3>
+                   <p className="text-white text-base md:text-lg font-medium break-all select-all">{t('global_email')}</p>
                 </div>
              </div>
              
-             <div className="bg-piano-matte p-8 rounded-3xl border border-white/5">
-                <MapPin className="w-8 h-8 text-gold mb-4" />
-                <h3 className="text-lg font-bold mb-2 uppercase tracking-widest">{t('address')}</h3>
-                <p className="text-white/60 leading-relaxed">
-                   {t('global_address')}
-                </p>
+             <div className="bg-piano-matte p-8 rounded-3xl border border-white/5 flex items-start space-x-6">
+                <div className="w-14 h-14 bg-gold/10 rounded-2xl flex items-center justify-center text-gold shrink-0">
+                   <MapPin className="w-6 h-6" />
+                </div>
+                <div>
+                   <h3 className="text-xs uppercase font-bold tracking-[0.2em] text-white/40 mb-1">{t('address')}</h3>
+                   <p className="text-white text-sm md:text-base leading-relaxed font-medium">
+                      {t('global_address')}
+                   </p>
+                </div>
              </div>
 
              <div className="aspect-video rounded-3xl overflow-hidden border border-white/5 grayscale hover:grayscale-0 transition-all duration-700">

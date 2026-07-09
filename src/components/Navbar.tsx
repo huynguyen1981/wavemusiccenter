@@ -30,6 +30,7 @@ export const Navbar: React.FC = () => {
                  <img 
                    src={getDirectLink(t('website_logo'))} 
                    alt="Wave Music Center Logo" 
+                   referrerPolicy="no-referrer"
                    className="w-full h-full object-contain p-1" 
                    onError={(e) => {
                      (e.target as HTMLImageElement).style.display = 'none';

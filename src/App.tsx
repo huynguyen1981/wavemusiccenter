@@ -15,9 +15,13 @@ import { Admin } from './pages/Admin';
 import { PianoDetail } from './pages/PianoDetail';
 import { MusicCenter } from './pages/MusicCenter';
 import { EventDetail } from './pages/EventDetail';
+import { LessonDetail } from './pages/LessonDetail';
+import { LessonClips } from './pages/LessonClips';
+import { LessonClipDetail } from './pages/LessonClipDetail';
 import { Contact } from './pages/Contact';
 import { About } from './pages/About';
 import { SeasonalEffects } from './components/SeasonalEffects';
+import { ScrollToTop } from './components/ScrollToTop';
 
 const FaviconManager = () => {
   const { t } = useLanguage();
@@ -51,6 +55,7 @@ export default function App() {
       <AuthProvider>
         <FaviconManager />
         <Router>
+          <ScrollToTop />
           <div className="flex flex-col min-h-screen">
             <SeasonalEffects />
             <Navbar />
@@ -61,6 +66,9 @@ export default function App() {
                 <Route path="/collections/:id" element={<PianoDetail />} />
                 <Route path="/music-center" element={<MusicCenter />} />
                 <Route path="/events/:id" element={<EventDetail />} />
+                <Route path="/lessons/:id" element={<LessonDetail />} />
+                <Route path="/lesson-clips" element={<LessonClips />} />
+                <Route path="/lesson-clips/:id" element={<LessonClipDetail />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/admin" element={<Admin />} />

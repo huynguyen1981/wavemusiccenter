@@ -20,6 +20,22 @@ export function getDirectLink(url: string) {
       return `https://lh3.googleusercontent.com/d/${idMatch[1]}`;
     }
   }
+
+  // Nếu là link ảnh ngoài (bắt đầu bằng http/https) và không phải Google Drive, YouTube hay localhost
+  if (
+    (trimmedUrl.startsWith('http://') || trimmedUrl.startsWith('https://')) &&
+    !trimmedUrl.includes('drive.google.com') &&
+    !trimmedUrl.includes('googleusercontent.com') &&
+    !trimmedUrl.includes('youtube.com') &&
+    !trimmedUrl.includes('img.youtube.com') &&
+    !trimmedUrl.includes('youtu.be') &&
+    !trimmedUrl.includes('localhost') &&
+    !trimmedUrl.includes('127.0.0.1')
+  ) {
+    // Sử dụng wsrv.nl làm proxy ảnh miễn phí để bypass hotlink protection của website nguồn
+    return `https://wsrv.nl/?url=${encodeURIComponent(trimmedUrl)}`;
+  }
+
   return trimmedUrl;
 }
 

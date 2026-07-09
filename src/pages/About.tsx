@@ -48,7 +48,7 @@ export const About: React.FC = () => {
           <div className="relative">
              <div className="aspect-[4/5] rounded-[3rem] overflow-hidden border border-white/5 relative z-10">
                 <img 
-                   src={getDirectLink(t('about_hero_img'))} 
+                   src={getDirectLink(t('about_hero_img'))} referrerPolicy="no-referrer" 
                    alt="History and Passion" 
                    className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000"
                 />

@@ -61,6 +61,32 @@ export interface ContactInquiry {
   createdAt: number;
 }
 
+export interface Lesson {
+  id: string;
+  title_en: string;
+  title_vi: string;
+  subtitle_en?: string;
+  subtitle_vi?: string;
+  content_en?: string;
+  content_vi?: string;
+  icon?: string;
+  parentId?: string | null;
+  order: number;
+  createdAt?: number;
+  updatedAt?: number;
+}
+
+export interface LessonClip {
+  id: string;
+  title_en: string;
+  title_vi: string;
+  description_en: string;
+  description_vi: string;
+  youtubeId: string;
+  images: string[];
+  createdAt: number;
+}
+
 export type Language = 'en' | 'vi';
 
 export interface Translation {

@@ -1,28 +1,54 @@
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
-    // Cho phép mọi người xem đàn và cài đặt web
+    // Helper function to check if user is an admin dynamically
+    function isAdmin() {
+      return request.auth != null && 
+        'email' in request.auth.token && (
+          request.auth.token.email == 'nguyenhuy.1981.hcm@gmail.com' ||
+          request.auth.token.email == 'nguyenhoangloc3110@gmail.com' ||
+          request.auth.token.email == 'locpianostx@gmail.com' ||
+          (exists(/databases/{database}/documents/settings/global) &&
+           'translations' in get(/databases/{database}/documents/settings/global).data &&
+           'admin_emails' in get(/databases/{database}/documents/settings/global).data.translations &&
+           'en' in get(/databases/{database}/documents/settings/global).data.translations.admin_emails &&
+           get(/databases/{database}/documents/settings/global).data.translations.admin_emails.en.matches('.*' + request.auth.token.email + '.*'))
+        );
+    }
+
+    // Cho phép mọi người xem đàn, sự kiện, giáo trình và cài đặt web
     match /pianos/{pianoId} {
       allow read: if true;
+      allow write: if isAdmin();
     }
     match /settings/{settingId} {
       allow read: if true;
+      allow write: if isAdmin();
     }
     match /events/{eventId} {
       allow read: if true;
+      allow write: if isAdmin();
     }
-
-    // Chỉ có bồ (nguyenhuy.1981.hcm@gmail.com) mới được quyền sửa
-    match /{document=**} {
-      allow write, read: if request.auth != null && request.auth.token.email == 'nguyenhuy.1981.hcm@gmail.com';
+    match /lessons/{lessonId} {
+      allow read: if true;
+      allow write: if isAdmin();
     }
-    
-    // Khách vãng lai được gửi đơn hàng (inquiry) và liên hệ
+    match /lesson_clips/{clipId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
     match /orders/{orderId} {
       allow create: if true;
+      allow read, update, delete: if isAdmin();
     }
     match /inquiries/{inquiryId} {
       allow create: if true;
+      allow read, update, delete: if isAdmin();
+    }
+
+    // fallback cho mọi document khác
+    match /{document=**} {
+      allow write, read: if isAdmin();
     }
   }
 }

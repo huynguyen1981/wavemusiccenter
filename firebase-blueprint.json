@@ -60,6 +60,40 @@
         "createdAt": { "type": "number" }
       },
       "required": ["title_en", "date", "status"]
+    },
+    "Lesson": {
+      "title": "Lesson",
+      "description": "A lesson, course, fee structure, policy, or program item for Wave Music Center",
+      "type": "object",
+      "properties": {
+        "title_en": { "type": "string" },
+        "title_vi": { "type": "string" },
+        "subtitle_en": { "type": "string" },
+        "subtitle_vi": { "type": "string" },
+        "content_en": { "type": "string" },
+        "content_vi": { "type": "string" },
+        "icon": { "type": "string" },
+        "parentId": { "type": "string" },
+        "order": { "type": "number" },
+        "createdAt": { "type": "number" },
+        "updatedAt": { "type": "number" }
+      },
+      "required": ["title_en", "title_vi", "order"]
+    },
+    "LessonClip": {
+      "title": "Lesson Clip",
+      "description": "A video lesson clip with thumbnail and YouTube link",
+      "type": "object",
+      "properties": {
+        "title_en": { "type": "string" },
+        "title_vi": { "type": "string" },
+        "description_en": { "type": "string" },
+        "description_vi": { "type": "string" },
+        "youtubeId": { "type": "string" },
+        "images": { "type": "array", "items": { "type": "string" } },
+        "createdAt": { "type": "number" }
+      },
+      "required": ["title_en", "title_vi", "youtubeId"]
     }
   },
   "firestore": {
@@ -78,6 +112,14 @@
     "events": {
       "schema": "MusicEvent",
       "description": "Collection of music center events"
+    },
+    "lessons": {
+      "schema": "Lesson",
+      "description": "Collection of music center lessons, courses, and educational elements"
+    },
+    "lesson_clips": {
+      "schema": "LessonClip",
+      "description": "Collection of educational lesson video clips"
     }
   }
 }

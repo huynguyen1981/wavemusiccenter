@@ -89,6 +89,7 @@ export const EventDetail: React.FC = () => {
                       exit={{ opacity: 0 }}
                       src={getDirectLink(event.images[activeMedia as number])} 
                       alt={title}
+                      referrerPolicy="no-referrer"
                       className="w-full h-full object-cover"
                     />
                   </AnimatePresence>
@@ -128,7 +129,7 @@ export const EventDetail: React.FC = () => {
                   onClick={() => setActiveMedia('video')}
                   className={`w-20 h-14 rounded-xl overflow-hidden border-2 transition-all relative ${activeMedia === 'video' ? 'border-gold scale-105' : 'border-white/5 opacity-50'}`}
                 >
-                  <img src={`https://img.youtube.com/vi/${event.youtubeId}/0.jpg`} className="w-full h-full object-cover" alt="Video" />
+                  <img src={`https://img.youtube.com/vi/${event.youtubeId}/0.jpg`} referrerPolicy="no-referrer" className="w-full h-full object-cover" alt="Video" />
                   <div className="absolute inset-0 flex items-center justify-center bg-black/40">
                     <Play className="w-4 h-4 text-white fill-current" />
                   </div>
@@ -140,7 +141,7 @@ export const EventDetail: React.FC = () => {
                   onClick={() => setActiveMedia(idx)}
                   className={`w-20 h-14 rounded-xl overflow-hidden border-2 transition-all ${activeMedia === idx ? 'border-gold scale-105' : 'border-white/5 opacity-50'}`}
                 >
-                  <img src={getDirectLink(img)} className="w-full h-full object-cover" alt={`Event view ${idx + 1}`} />
+                  <img src={getDirectLink(img)} referrerPolicy="no-referrer" className="w-full h-full object-cover" alt={`Event view ${idx + 1}`} />
                 </button>
               ))}
             </div>

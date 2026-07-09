@@ -30,6 +30,7 @@ export const PianoCard: React.FC<PianoCardProps> = ({ piano }) => {
         <img
           src={imgUrl}
           alt={language === 'en' ? piano.title_en : piano.title_vi}
+          referrerPolicy="no-referrer"
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
         />
         <div className="absolute top-4 left-4">

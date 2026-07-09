@@ -76,6 +76,7 @@ export const PianoDetail: React.FC = () => {
                 exit={{ opacity: 0 }}
                 src={getDirectLink(images[activeImageIndex])} 
                 alt={piano.title_en}
+                referrerPolicy="no-referrer"
                 className="w-full h-full object-cover"
               />
             </AnimatePresence>
@@ -109,7 +110,7 @@ export const PianoDetail: React.FC = () => {
                       activeImageIndex === i ? "border-gold" : "border-transparent opacity-50 hover:opacity-100"
                     )}
                  >
-                   <img src={getDirectLink(img)} alt="" className="w-full h-full object-cover" />
+                   <img src={getDirectLink(img)} alt="" referrerPolicy="no-referrer" className="w-full h-full object-cover" />
                  </button>
                ))}
             </div>
